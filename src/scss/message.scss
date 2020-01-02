@@ -1,0 +1,24 @@
+.message-contoiner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.message-item {
+  border-bottom: 1px solid grey;
+  margin: 20px 5px;
+  text-align: left;
+  padding: 4px;
+}
+.message-item_content {
+  text-align: left;
+}
+.message-item_option {
+  display: flex;
+  justify-content: space-between;
+}
+.message-item_delete {
+  cursor: pointer;
+}
+.message-item_delete:hover {
+  color: #008cff;
+}
