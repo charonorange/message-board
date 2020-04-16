@@ -13,7 +13,7 @@ class MessageItem extends React.Component{
             <div className="message-item_content">{content}</div>
             <div className="message-item_option">
               <div>{createdAt}</div>
-              <div class="message-item_delete"><span className="btn glyphicon glyphicon-remove btn-danger" onClick={this.delete.bind(this)}>删除留言</span></div>
+              <div className="message-item_delete"><span className="btn glyphicon glyphicon-remove btn-danger" onClick={this.delete.bind(this)}>删除留言</span></div>
             </div>
           </div>
         );

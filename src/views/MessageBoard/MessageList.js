@@ -5,8 +5,8 @@ class MessageList extends React.Component{
     render(){
         let todos=this.props.data;
        
-        let todoItems=todos.map(item=>{
-            return <MessageItem deleteItem={this.props.deleteItem} key={item.id} data={item}/>
+        let todoItems=todos.map(item => {
+            return <MessageItem deleteItem={this.props.deleteItem} key={item.id + 'id'} data={item}/>
         });
         
         return (

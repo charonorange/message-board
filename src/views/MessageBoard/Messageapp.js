@@ -14,7 +14,7 @@ class Messageapp extends React.Component{
         this.deleteItem=this.deleteItem.bind(this);
     }
     componentDidMount () {
-      axios.get('http://127.0.0.1:3000/message/list')
+      axios.get('http://127.0.0.1:4000/message/list')
       .then(response=>{
         this.setState({
           todos: response.data.list
@@ -36,7 +36,7 @@ class Messageapp extends React.Component{
           is_delete: 0
         }
 
-        axios.put('http://127.0.0.1:3000/message/update', deleteItem)
+        axios.put('http://127.0.0.1:4000/message/update', deleteItem)
         .then(response=>{
           console.log('response', response)
           
@@ -46,28 +46,40 @@ class Messageapp extends React.Component{
         })
     }
     addItem(value){
-       this.state.todos.unshift(
-            {
-                content: value,
-                createdAt: (new Date()).toLocaleString()
-            }
-       )
-        this.setState({
-            todos:this.state.todos
-        });
+      //  this.state.todos.unshift(
+      //       {
+      //           content: value,
+      //           createdAt: (new Date()).toLocaleString()
+      //       }
+      //  )
+      //   this.setState({
+      //       todos:this.state.todos
+      //   });
         let item = {
           content: value,
           is_delete: 1
         }
 
-        axios.post('http://127.0.0.1:3000/message/create', item)
+        axios.post('http://127.0.0.1:4000/message/create', item)
         .then(response=>{
-          console.log('response', response)
-          
+          console.log('response000', response)
+          this.getCommentList()
         })
         .catch(error =>{
           console.log(error.message)
         })
+      
+    }
+    getCommentList () {
+      axios.get('http://127.0.0.1:4000/message/list')
+      .then(response=>{
+        this.setState({
+          todos: response.data.list
+        });
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
     }
 
     render(){
